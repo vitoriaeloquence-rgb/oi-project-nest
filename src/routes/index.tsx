@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     links: [{ rel: "preload", as: "image", href: logo.url, fetchpriority: "high" }],
     meta: [
-      { title: "pré-inscrição Black Week Eloquence" },
+      { title: "Pré-inscrição Black Week Eloquence" },
       { name: "description", content: "Faça seu pré-inscrição para a Black Week da Eloquence Escola de Oratória e escolha sua turma." },
-      { property: "og:title", content: "pré-inscrição Black Week Eloquence" },
+      { property: "og:title", content: "Pré-inscrição Black Week Eloquence" },
       { property: "og:description", content: "Escolha sua turma e adiante seu atendimento. Inscrições abrem dia 9 de novembro, às 19h." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
