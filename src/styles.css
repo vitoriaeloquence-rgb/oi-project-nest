@@ -164,3 +164,28 @@
   .bw-button:hover:not(:disabled) { filter: brightness(1.1); }
   .bw-button:disabled { opacity: .6; cursor: wait; }
 }
+
+
+  /* Diferencia visualmente as opções de final de semana sem alterar a identidade noturna. */
+  .bw-group[data-period="fds"] .bw-option {
+    background: oklch(0.93 0.035 245);
+    border-color: oklch(0.82 0.07 245);
+    color: oklch(0.22 0.045 250);
+  }
+  .bw-group[data-period="fds"] .bw-option:hover {
+    border-color: oklch(0.62 0.13 250);
+  }
+  .bw-group[data-period="fds"] .bw-option[data-selected="true"] {
+    background: oklch(0.86 0.07 245);
+    border-color: oklch(0.55 0.16 250);
+  }
+  .bw-group[data-period="fds"] .bw-option .text-muted-foreground {
+    color: oklch(0.38 0.045 250);
+  }
+  .bw-group[data-period="fds"] .bw-radio {
+    accent-color: oklch(0.48 0.17 250);
+  }
+  .bw-group[data-period="fds"] .bw-option .bw-badge {
+    background: oklch(0.42 0.16 250);
+    color: white;
+  }
