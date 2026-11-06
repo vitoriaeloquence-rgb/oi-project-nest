@@ -189,3 +189,10 @@
     background: oklch(0.42 0.16 250);
     color: white;
   }
+
+/* Hide the complete Lovable branding widget on every page. */
+#lovable-badge {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
