@@ -71,7 +71,7 @@ function Index() {
         <img src={logo.url} alt="Black Week Eloquence Escola de Oratória — 9 a 13 de novembro" width={262} height={163} fetchPriority="high" decoding="async" className="mx-auto mt-6 w-48 sm:w-60" />
 
             <header className="mt-2 text-center">
-              <h1 className="text-2xl font-extrabold sm:text-3xl">pré-inscrição Black Week Eloquence</h1>
+              <h1 className="text-2xl font-extrabold sm:text-3xl">Pré-inscrição Black Week Eloquence</h1>
               <p className="mt-3 text-muted-foreground">Preencha seus dados, escolha sua turma e informe como pretende pagar para adiantar seu atendimento. As inscrições abrem segunda-feira, dia 9 de novembro, às 19h.</p>
               <p className="bw-notice mt-4 text-sm">{AVISO}</p>
             </header>
