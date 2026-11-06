@@ -46,7 +46,7 @@ export const enviarPreCadastro = createServerFn({ method: "POST" })
       hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false,
     });
     const p = Object.fromEntries(fmt.formatToParts(new Date()).map((x) => [x.type, x.value]));
-    const dataHora = `${p.day}/${p.month}/${p.year} ${p.hour}:${p.minute}:${p.second}`;
+    const dataHora = `${p["day"]}/${p["month"]}/${p["year"]} ${p["hour"]}:${p["minute"]}:${p["second"]}`;
 
     const row = [dataHora, nome, whatsapp, turma.codigo, turma.periodo, turma.datasCurtas, data.pagamento];
     const res = await fetch(
