@@ -27,11 +27,11 @@ export const TURMAS_NOITE: Turma[] = [
 ];
 
 export const TURMAS_FDS: Turma[] = [
-  fds("F1", "27 a 29 de novembro de 2026", "27 a 29/11/2026"),
-  fds("F2", "11 a 13 de dezembro de 2026", "11 a 13/12/2026"),
-  fds("F3", "18 a 20 de dezembro de 2026", "18 a 20/12/2026"),
-  fds("F4", "15 a 17 de janeiro de 2027", "15 a 17/01/2027"),
-  fds("F5", "29 a 31 de janeiro de 2027", "29 a 31/01/2027"),
+  fds("F7", "27 a 29 de novembro de 2026", "27 a 29/11/2026"),
+  fds("F8", "11 a 13 de dezembro de 2026", "11 a 13/12/2026"),
+  fds("F9", "18 a 20 de dezembro de 2026", "18 a 20/12/2026"),
+  fds("F10", "15 a 17 de janeiro de 2027", "15 a 17/01/2027"),
+  fds("F11", "29 a 31 de janeiro de 2027", "29 a 31/01/2027"),
 ];
 
 export const TODAS_TURMAS = [...TURMAS_NOITE, ...TURMAS_FDS];
