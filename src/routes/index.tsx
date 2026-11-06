@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useRef, useState } from "react";
-import logo from "@/assets/black-week-eloquence.png.asset.json";
+import logo from "@/assets/black-week-logo.webp.asset.json";
 import { enviarPreCadastro } from "@/lib/precadastro.functions";
 import {
   PAGAMENTOS, TODAS_TURMAS, TURMAS_FDS, TURMAS_NOITE, type Turma,
@@ -10,6 +10,7 @@ import {
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "preload", as: "image", href: logo.url, fetchpriority: "high" }],
     meta: [
       { title: "Pré-cadastro Black Week Eloquence" },
       { name: "description", content: "Faça seu pré-cadastro para a Black Week da Eloquence Escola de Oratória e escolha sua turma." },
@@ -33,7 +34,7 @@ function Index() {
   const [pagamento, setPagamento] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
   const [sending, setSending] = useState(false);
-  const [done, setDone] = useState(false);
+  const navigate = useNavigate();
   const busy = useRef(false);
   const enviar = useServerFn(enviarPreCadastro);
   const sel = TODAS_TURMAS.find((t) => t.codigo === turma);
@@ -55,8 +56,7 @@ function Index() {
     setSending(true);
     try {
       await enviar({ data: { nome, whatsapp, turma, pagamento: pagamento as (typeof PAGAMENTOS)[number] } });
-      setDone(true);
-      window.scrollTo({ top: 0 });
+      navigate({ to: "/obrigado" });
     } catch {
       setErrors({ geral: "Não conseguimos enviar agora. Verifique sua conexão e tente novamente." });
     } finally {
@@ -68,17 +68,8 @@ function Index() {
   return (
     <main className="bw-page min-h-screen px-4 pb-16">
       <div className="mx-auto max-w-3xl">
-        <img src={logo.url} alt="Black Week Eloquence Escola de Oratória — 9 a 13 de novembro" width={1672} height={941} className="mx-auto w-full max-w-xl" />
+        <img src={logo.url} alt="Black Week Eloquence Escola de Oratória — 9 a 13 de novembro" width={262} height={163} fetchPriority="high" decoding="async" className="mx-auto mt-6 w-48 sm:w-60" />
 
-        {done ? (
-          <section className="bw-card mt-2 p-6 text-center sm:p-10" role="status">
-            <h1 className="text-2xl font-extrabold sm:text-3xl">Pré-cadastro recebido! ✅</h1>
-            <p className="mt-4 text-muted-foreground">Já recebemos seus dados e sua turma de interesse.</p>
-            <p className="mt-3">As inscrições abrem <strong>segunda-feira, 9 de novembro, às 19h</strong>. Acompanhe o grupo VIP para receber o link e concluir sua compra.</p>
-            <p className="mt-5 text-sm text-muted-foreground"><strong className="text-foreground">Importante:</strong> o pré-cadastro não reserva sua vaga. A matrícula depende da conclusão da compra e da disponibilidade da turma.</p>
-          </section>
-        ) : (
-          <>
             <header className="mt-2 text-center">
               <h1 className="text-2xl font-extrabold sm:text-3xl">Pré-cadastro Black Week Eloquence</h1>
               <p className="mt-3 text-muted-foreground">Preencha seus dados, escolha sua turma e informe como pretende pagar para adiantar seu atendimento. As inscrições abrem segunda-feira, dia 9 de novembro, às 19h.</p>
@@ -137,8 +128,6 @@ function Index() {
                 <p className="mt-3 text-center text-sm text-muted-foreground">{AVISO}</p>
               </div>
             </form>
-          </>
-        )}
       </div>
     </main>
   );
