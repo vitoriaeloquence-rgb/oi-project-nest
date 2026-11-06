@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     links: [{ rel: "preload", as: "image", href: logo.url, fetchpriority: "high" }],
     meta: [
-      { title: "Pré-cadastro Black Week Eloquence" },
-      { name: "description", content: "Faça seu pré-cadastro para a Black Week da Eloquence Escola de Oratória e escolha sua turma." },
-      { property: "og:title", content: "Pré-cadastro Black Week Eloquence" },
+      { title: "pré-inscrição Black Week Eloquence" },
+      { name: "description", content: "Faça seu pré-inscrição para a Black Week da Eloquence Escola de Oratória e escolha sua turma." },
+      { property: "og:title", content: "pré-inscrição Black Week Eloquence" },
       { property: "og:description", content: "Escolha sua turma e adiante seu atendimento. Inscrições abrem dia 9 de novembro, às 19h." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const AVISO = "O pré-cadastro não reserva sua vaga. A matrícula será confirmada após a conclusão da compra, conforme a disponibilidade da turma.";
+const AVISO = "O pré-inscrição não reserva sua vaga. A matrícula será confirmada após a conclusão da compra, conforme a disponibilidade da turma.";
 
 type Errors = Partial<Record<"nome" | "whatsapp" | "turma" | "pagamento" | "geral", string>>;
 
@@ -71,7 +71,7 @@ function Index() {
         <img src={logo.url} alt="Black Week Eloquence Escola de Oratória — 9 a 13 de novembro" width={262} height={163} fetchPriority="high" decoding="async" className="mx-auto mt-6 w-48 sm:w-60" />
 
             <header className="mt-2 text-center">
-              <h1 className="text-2xl font-extrabold sm:text-3xl">Pré-cadastro Black Week Eloquence</h1>
+              <h1 className="text-2xl font-extrabold sm:text-3xl">pré-inscrição Black Week Eloquence</h1>
               <p className="mt-3 text-muted-foreground">Preencha seus dados, escolha sua turma e informe como pretende pagar para adiantar seu atendimento. As inscrições abrem segunda-feira, dia 9 de novembro, às 19h.</p>
               <p className="bw-notice mt-4 text-sm">{AVISO}</p>
             </header>
@@ -124,7 +124,7 @@ function Index() {
 
               <div>
                 {errors.geral && <p data-error className="bw-error mb-3 text-center" role="alert">{errors.geral}</p>}
-                <button type="submit" disabled={sending} className="bw-button">{sending ? "Enviando…" : "Enviar meu pré-cadastro"}</button>
+                <button type="submit" disabled={sending} className="bw-button">{sending ? "Enviando…" : "Enviar meu pré-inscrição"}</button>
                 <p className="mt-3 text-center text-sm text-muted-foreground">{AVISO}</p>
               </div>
             </form>
@@ -145,7 +145,7 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
 
 function Grupo({ titulo, sub, turmas, value, onChange }: { titulo: string; sub: string; turmas: Turma[]; value: string; onChange: (v: string) => void }) {
   return (
-    <div className="mt-6">
+    <div className="bw-group mt-6" data-period={turmas[0]?.periodo === "Final de semana" ? "fds" : "noite"}>
       <h3 className="text-lg font-bold text-primary">{titulo}</h3>
       <p className="text-sm text-muted-foreground">{sub}</p>
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
