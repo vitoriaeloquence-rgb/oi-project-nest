@@ -19,6 +19,7 @@
  */
 
 @theme inline {
+  --font-sans: "Montserrat", Arial, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,26 +63,26 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --radius: 0.75rem;
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.17 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.17 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.58 0.23 27);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.22 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.78 0 0);
+  --accent: oklch(0.25 0.06 27);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.72 0.17 25);
+  --destructive-foreground: oklch(0.12 0 0);
+  --border: oklch(0.32 0 0);
+  --input: oklch(0.4 0 0);
+  --ring: oklch(0.58 0.23 27);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -138,7 +139,28 @@
   }
 
   body {
+    font-family: var(--font-sans);
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@layer components {
+  .bw-page { background: radial-gradient(ellipse at top left, oklch(0.3 0.12 27 / 0.6), transparent 55%), var(--background); }
+  .bw-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+  .bw-notice { border-left: 3px solid var(--primary); background: var(--accent); padding: .75rem 1rem; border-radius: .5rem; text-align: left; }
+  .bw-input { width: 100%; min-height: 3rem; padding: 0 1rem; font-size: 1rem; background: var(--background); color: var(--foreground); border: 1px solid var(--input); border-radius: .5rem; }
+  .bw-input::placeholder { color: var(--muted-foreground); opacity: .7; }
+  .bw-input:focus { outline: 2px solid var(--ring); outline-offset: 1px; }
+  .bw-input[aria-invalid="true"] { border-color: var(--destructive); }
+  .bw-error { color: var(--destructive); font-size: .875rem; font-weight: 500; }
+  .bw-option { display: flex; gap: .75rem; padding: 1rem; cursor: pointer; background: var(--card); border: 2px solid var(--border); border-radius: var(--radius); transition: border-color .15s; }
+  .bw-option:hover { border-color: var(--muted-foreground); }
+  .bw-option[data-selected="true"] { border-color: var(--primary); background: var(--accent); }
+  .bw-option:has(input:focus-visible) { outline: 2px solid var(--ring); outline-offset: 2px; }
+  .bw-radio { width: 1.25rem; height: 1.25rem; flex-shrink: 0; accent-color: var(--primary); }
+  .bw-badge { display: inline-block; font-size: .75rem; font-weight: 700; padding: .2rem .6rem; border-radius: 999px; background: var(--primary); color: var(--primary-foreground); }
+  .bw-button { width: 100%; min-height: 3.5rem; font-size: 1.1rem; font-weight: 800; border-radius: var(--radius); background: var(--primary); color: var(--primary-foreground); transition: filter .15s; }
+  .bw-button:hover:not(:disabled) { filter: brightness(1.1); }
+  .bw-button:disabled { opacity: .6; cursor: wait; }
 }
