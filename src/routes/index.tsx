@@ -105,7 +105,11 @@ function Index() {
                   {PAGAMENTOS.map((p) => (
                     <label key={p} className="bw-option" data-selected={pagamento === p}>
                       <input type="radio" name="pagamento" value={p} checked={pagamento === p} onChange={() => setPagamento(p)} className="bw-radio" />
-                      <span className="font-semibold">{p}</span>
+                      <span className="min-w-0">
+                        <span className="block font-semibold">{p}</span>
+                        <span className="mt-1 block text-lg font-extrabold text-green-600">{p === "À vista no Pix" ? "R$ 907,00" : "R$ 997,00"}</span>
+                        {p === "Parcelado no cartão" && <span className="block text-sm text-green-600">Em até 10x de R$ 99,70, sem juros</span>}
+                      </span>
                     </label>
                   ))}
                 </div>
