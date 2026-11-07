@@ -7,9 +7,9 @@ const WHATSAPP =
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
     meta: [
-      { title: "pré-inscrição recebido — Black Week Eloquence" },
+      { title: "Pré-inscrição recebido — Black Week Eloquence" },
       { name: "description", content: "Recebemos seu pré-inscrição para a Black Week da Eloquence Escola de Oratória." },
-      { property: "og:title", content: "pré-inscrição recebido — Black Week Eloquence" },
+      { property: "og:title", content: "Pré-inscrição recebido — Black Week Eloquence" },
       { property: "og:description", content: "Seu pré-inscrição foi recebido. As inscrições abrem dia 9 de novembro, às 19h." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -25,7 +25,7 @@ function Obrigado() {
       <div className="mx-auto max-w-xl">
         <img src={logo.url} alt="Black Week Eloquence Escola de Oratória" width={262} height={163} className="mx-auto mt-6 w-48 sm:w-60" />
         <section className="bw-card mt-6 p-6 text-center sm:p-10" role="status">
-          <h1 className="text-2xl font-extrabold sm:text-3xl">pré-inscrição recebido! ✅</h1>
+          <h1 className="text-2xl font-extrabold sm:text-3xl">Pré-inscrição recebido! ✅</h1>
           <p className="mt-4 text-muted-foreground">Já recebemos seus dados e sua turma de interesse.</p>
           <p className="mt-3">
             As inscrições abrem <strong>segunda-feira, 9 de novembro, às 19h</strong>. Acompanhe o grupo VIP para receber o link e concluir sua compra.
