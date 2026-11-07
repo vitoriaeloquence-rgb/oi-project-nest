@@ -124,7 +124,7 @@ function Index() {
 
               <div>
                 {errors.geral && <p data-error className="bw-error mb-3 text-center" role="alert">{errors.geral}</p>}
-                <button type="submit" disabled={sending} className="bw-button">{sending ? "Enviando…" : "Enviar meu pré-inscrição"}</button>
+                <button type="submit" disabled={sending} className="bw-button">{sending ? "Enviando…" : "Enviar meu Pré-inscrição"}</button>
                 <p className="mt-3 text-center text-sm text-muted-foreground">{AVISO}</p>
               </div>
             </form>
